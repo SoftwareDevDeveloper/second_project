@@ -3,7 +3,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "4.0.2"
 
- 
+
   name            = "my-vpc"
   cidr            = "10.0.0.0/16"
   azs             = ["eu-west-1a", "eu-west-1b"]
@@ -16,6 +16,7 @@ module "vpc" {
   #   create_database_internet_gateway_route = true
   #   create_database_nat_gateway_route = true
   database_subnets = ["10.0.151.0/24", "10.0.152.0/24"]
+
   # NAT Gateway for outbound communication
   enable_nat_gateway = true
   single_nat_gateway = true
@@ -30,7 +31,7 @@ module "vpc" {
   private_subnet_tags = {
     type = "private_subnets"
   }
-  
+
   database_subnet_tags = {
     type = "database_subnets"
 
@@ -42,6 +43,7 @@ module "vpc" {
     Location        = "London"
     Weekend_classes = "Yes"
   }
+
   vpc_tags = {
     Name = "vpc-Dev"
   }
